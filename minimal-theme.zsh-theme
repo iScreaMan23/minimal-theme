@@ -27,8 +27,8 @@ if (( $+functions[zpm] )); then
 fi
 
 setopt prompt_subst
-
-PROMPT='${pr_is_root}${pr_user} '
+PROMPT="╭─${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}
+╰─%B${user_symbol}%b "
 RPROMPT='${pr_return}${pr_exec_time}${pr_php}${pr_rust}${pr_node}${pr_git}${pr_cwd}'
 PROMPT2='${pr_2}'
 PROMPT_EOL_MARK='${pr_eol}'
