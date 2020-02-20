@@ -26,6 +26,30 @@ if (( $+functions[zpm] )); then
 
 fi
 
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v
+bindkey -M command '^[' send-break
+bindkey -M vicmd v edit-command-line
+bindkey '^?' backward-delete-char
+bindkey '^r' history-incremental-search-backward
+
+export KEYTIMEOUT=1
+
+MODE_CURSOR_VICMD="green block"
+MODE_CURSOR_VIINS="#20d08a blinking bar"
+MODE_CURSOR_SEARCH="#ff00ff steady underline"
+MODE_INDICATOR_VIINS='%F{2}|<%F{2}I>|%f'
+MODE_INDICATOR_VICMD='%F{1}|<%F{1}N>|%f'
+MODE_INDICATOR_REPLACE='%F{1}|<%F{1}R>|%f'
+MODE_INDICATOR_SEARCH='%F{5}|<%F{5}S>|%f'
+MODE_INDICATOR_VISUAL='%F{4}|<%F{4}V>|%f'
+MODE_INDICATOR_VLINE='%F{4}|<%F{4}V>|%f'
+ZSH_AUTOSUGGEST_USE_ASYN=true
+
 setopt prompt_subst
 PROMPT="╭─${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}
 ╰─%B${user_symbol}%b "
